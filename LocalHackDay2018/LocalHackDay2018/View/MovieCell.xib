@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,51 +11,85 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="KGk-i7-Jjw" customClass="MovieCell" customModule="LocalHackDay2018" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="540" height="120"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="100" id="KGk-i7-Jjw" customClass="MovieCell" customModule="LocalHackDay2018" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="540" height="119.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KEF-07-Sgt">
-                        <rect key="frame" x="82" y="-274" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="QJm-qU-vUT"/>
-                    </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pFJ-lh-CRU">
-                        <rect key="frame" x="225" y="15" width="89.5" height="89.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-Sb-VfJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ghost-in-the-Shell-2017-970x545" translatesAutoresizingMaskIntoConstraints="NO" id="pFJ-lh-CRU">
+                                <rect key="frame" x="10" y="10" width="79.666666666666671" height="79.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pFJ-lh-CRU" secondAttribute="height" multiplier="1:1" id="YCk-yM-h1J"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GHOST IN THE SHELL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3K7-Yq-x0N">
+                                <rect key="frame" x="99.666666666666671" y="9.9999999999999982" width="168.33333333333331" height="19.333333333333329"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fantasy/Drama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7W-Pz-bhe">
+                                <rect key="frame" x="99.666666666666686" y="71.666666666666671" width="105.33333333333331" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-Cx-4nH">
+                                <rect key="frame" x="315.33333333333331" y="26" width="44.666666666666686" height="48"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JqA-gd-uio">
+                                <rect key="frame" x="99.666666666666671" y="48.666666666666664" width="35.333333333333329" height="17.999999999999993"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="pFJ-lh-CRU" secondAttribute="height" multiplier="1:1" id="YCk-yM-h1J"/>
+                            <constraint firstItem="pFJ-lh-CRU" firstAttribute="top" secondItem="4hO-Sb-VfJ" secondAttribute="top" constant="10" id="9We-KS-Vol"/>
+                            <constraint firstItem="3K7-Yq-x0N" firstAttribute="leading" secondItem="pFJ-lh-CRU" secondAttribute="trailing" constant="10" id="F6e-fd-1xm"/>
+                            <constraint firstItem="N7W-Pz-bhe" firstAttribute="leading" secondItem="3K7-Yq-x0N" secondAttribute="leading" id="IMd-Z6-nLJ"/>
+                            <constraint firstItem="JqA-gd-uio" firstAttribute="leading" secondItem="N7W-Pz-bhe" secondAttribute="leading" id="IS2-BF-aOo"/>
+                            <constraint firstItem="1cN-Cx-4nH" firstAttribute="centerY" secondItem="4hO-Sb-VfJ" secondAttribute="centerY" id="K6I-WM-GnY"/>
+                            <constraint firstItem="N7W-Pz-bhe" firstAttribute="top" secondItem="JqA-gd-uio" secondAttribute="bottom" constant="5" id="NpZ-9G-QBe"/>
+                            <constraint firstItem="3K7-Yq-x0N" firstAttribute="top" secondItem="pFJ-lh-CRU" secondAttribute="top" id="QRB-rZ-Ojh"/>
+                            <constraint firstItem="pFJ-lh-CRU" firstAttribute="leading" secondItem="4hO-Sb-VfJ" secondAttribute="leading" constant="10" id="Xq4-ae-kS8"/>
+                            <constraint firstItem="pFJ-lh-CRU" firstAttribute="centerY" secondItem="4hO-Sb-VfJ" secondAttribute="centerY" id="cR5-x8-yc9"/>
+                            <constraint firstAttribute="trailing" secondItem="1cN-Cx-4nH" secondAttribute="trailing" constant="15" id="eOd-jU-QgM"/>
+                            <constraint firstItem="N7W-Pz-bhe" firstAttribute="bottom" secondItem="pFJ-lh-CRU" secondAttribute="bottom" id="puW-OP-Mwo"/>
+                            <constraint firstAttribute="leading" secondItem="4hO-Sb-VfJ" secondAttribute="leading" id="xUG-He-pIt"/>
                         </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3K7-Yq-x0N">
-                        <rect key="frame" x="204" y="43" width="131" height="33.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="9.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cN-Cx-4nH">
-                        <rect key="frame" x="240" y="34" width="60" height="51.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="43"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7W-Pz-bhe">
-                        <rect key="frame" x="246" y="49" width="47" height="20.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="4hO-Sb-VfJ" secondAttribute="bottom" id="KZS-9N-tiK"/>
+                    <constraint firstItem="4hO-Sb-VfJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="eiw-AY-MRS"/>
+                    <constraint firstItem="4hO-Sb-VfJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qBg-SS-Igf"/>
+                    <constraint firstAttribute="trailing" secondItem="4hO-Sb-VfJ" secondAttribute="trailing" id="rMU-nz-pMU"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <point key="canvasLocation" x="361.60000000000002" y="94.452773613193415"/>
+            <connections>
+                <outlet property="containerView" destination="4hO-Sb-VfJ" id="Fs7-nH-lmt"/>
+                <outlet property="genre" destination="N7W-Pz-bhe" id="aaN-KN-MOd"/>
+                <outlet property="movieSplash" destination="pFJ-lh-CRU" id="OhB-JV-Cpr"/>
+                <outlet property="rating" destination="1cN-Cx-4nH" id="CTQ-wb-5fs"/>
+                <outlet property="title" destination="3K7-Yq-x0N" id="y12-Ki-fGK"/>
+            </connections>
+            <point key="canvasLocation" x="360.80000000000001" y="93.842364532019715"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Ghost-in-the-Shell-2017-970x545" width="970" height="545"/>
+    </resources>
 </document>

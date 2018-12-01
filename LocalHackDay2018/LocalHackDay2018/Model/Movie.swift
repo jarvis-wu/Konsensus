@@ -9,6 +9,15 @@
 import UIKit
 
 struct Movie {
-    private let title = String()
-    private let rating = Float()
+    var title = String()
+    var genre = String()
+    var rating = Float()
+    var imageUrl = String()
+    
+    init(title: String, genre: String, rating: Float, imageUrl: String) {
+        self.title = title
+        self.genre = genre
+        self.rating = rating
+        self.imageUrl = imageUrl
+    }
 }

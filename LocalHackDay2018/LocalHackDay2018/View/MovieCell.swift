@@ -13,9 +13,6 @@ class MovieCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 10
-            containerView.layer.shadowOpacity = 0.4
-            containerView.layer.shadowRadius = 3
-            containerView.layer.shadowColor = UIColor.lightGray.cgColor
         }
     }
     
