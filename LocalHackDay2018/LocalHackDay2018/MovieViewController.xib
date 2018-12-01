@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieViewController" customModule="LocalHackDay2018" customModuleProvider="target">
+            <connections>
+                <outlet property="imgView" destination="Bhk-mg-gpw" id="6M1-gi-BdN"/>
+                <outlet property="subtitleLabel" destination="NJd-Yl-d1Z" id="PDu-oe-prU"/>
+                <outlet property="titleLabel" destination="q32-cX-cJq" id="cKc-EI-gtQ"/>
+                <outlet property="twitterTableView" destination="scf-3r-OD9" id="dL7-YF-uGF"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ghost-in-the-Shell-2017-970x545" translatesAutoresizingMaskIntoConstraints="NO" id="Bhk-mg-gpw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="281.33333333333331"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Bhk-mg-gpw" secondAttribute="height" multiplier="4:3" id="uYP-2b-in8"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="scf-3r-OD9">
+                    <rect key="frame" x="0.0" y="407" width="375" height="405"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Tweeting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9j-Ut-ZkU">
+                    <rect key="frame" x="129.66666666666666" y="376.66666666666669" width="116" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D1g-eQ-BC7">
+                    <rect key="frame" x="14.666666666666657" y="296" width="346" height="50"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-xn-7uO">
+                            <rect key="frame" x="0.0" y="0.0" width="266" height="50"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Qcv-D0-hyP">
+                                    <rect key="frame" x="0.0" y="0.0" width="266" height="50"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GHOST IN THE SHELL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q32-cX-cJq">
+                                            <rect key="frame" x="0.0" y="0.0" width="266" height="29.666666666666668"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2017 ‧ Drama/Fantasy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJd-Yl-d1Z">
+                                            <rect key="frame" x="0.0" y="29.666666666666686" width="173" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mEL-a6-gv7">
+                            <rect key="frame" x="286" y="0.0" width="60" height="50"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-t0-Z8r">
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                    <size key="shadowOffset" width="0.0" height="0.0"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="63k-r8-iEa"/>
+                    </constraints>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPB-it-CVo">
+                    <rect key="frame" x="15" y="361" width="345" height="0.66666666666668561"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="0.67000000000000004" id="Etk-5n-fgk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gPB-it-CVo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="23b-Zg-bZ2"/>
+                <constraint firstItem="D1g-eQ-BC7" firstAttribute="top" secondItem="Bhk-mg-gpw" secondAttribute="bottom" constant="14.666666666666686" id="4Gn-0T-j2b"/>
+                <constraint firstItem="d9j-Ut-ZkU" firstAttribute="top" secondItem="gPB-it-CVo" secondAttribute="bottom" constant="15" id="NZB-Ux-3wi"/>
+                <constraint firstItem="D1g-eQ-BC7" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Rl5-Kw-mMD"/>
+                <constraint firstItem="Bhk-mg-gpw" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="TIe-DK-Ohr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="scf-3r-OD9" secondAttribute="trailing" id="Ufu-pg-qQw"/>
+                <constraint firstAttribute="bottom" secondItem="scf-3r-OD9" secondAttribute="bottom" id="aE7-WC-Izv"/>
+                <constraint firstItem="scf-3r-OD9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dMM-sG-gFt"/>
+                <constraint firstItem="Bhk-mg-gpw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="flv-RB-6Ih"/>
+                <constraint firstItem="scf-3r-OD9" firstAttribute="top" secondItem="d9j-Ut-ZkU" secondAttribute="bottom" constant="10" id="iNg-dH-Hee"/>
+                <constraint firstItem="gPB-it-CVo" firstAttribute="top" secondItem="D1g-eQ-BC7" secondAttribute="bottom" constant="15" id="ry7-cb-s48"/>
+                <constraint firstItem="Bhk-mg-gpw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="s1x-ej-4hQ"/>
+                <constraint firstItem="d9j-Ut-ZkU" firstAttribute="centerX" secondItem="scf-3r-OD9" secondAttribute="centerX" id="uzA-zF-b8M"/>
+                <constraint firstItem="gPB-it-CVo" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="weU-Kc-tiJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="53.600000000000001" y="39.90147783251232"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Ghost-in-the-Shell-2017-970x545" width="970" height="545"/>
+    </resources>
+</document>
