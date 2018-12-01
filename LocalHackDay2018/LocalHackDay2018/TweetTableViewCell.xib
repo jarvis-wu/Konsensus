@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTableViewCell" id="KGk-i7-Jjw" customClass="TweetTableViewCell" customModule="LocalHackDay2018" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4V-Kr-W18">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="uov-fw-o29">
+                                <rect key="frame" x="15" y="10" width="290" height="99.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPz-r1-HOT">
+                                        <rect key="frame" x="0.0" y="0.0" width="37.5" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Ahd-9v-GaU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-0C-383">
+                                        <rect key="frame" x="0.0" y="23" width="39.5" height="76.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.14999999999999999" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uov-fw-o29" firstAttribute="centerY" secondItem="o4V-Kr-W18" secondAttribute="centerY" id="0Dh-Tb-hci"/>
+                            <constraint firstItem="uov-fw-o29" firstAttribute="top" secondItem="o4V-Kr-W18" secondAttribute="top" constant="10" id="5at-xQ-M58"/>
+                            <constraint firstItem="uov-fw-o29" firstAttribute="leading" secondItem="o4V-Kr-W18" secondAttribute="leading" constant="15" id="SJF-tC-CVj"/>
+                            <constraint firstItem="uov-fw-o29" firstAttribute="centerX" secondItem="o4V-Kr-W18" secondAttribute="centerX" id="Ssc-uF-gpT"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="o4V-Kr-W18" secondAttribute="bottom" id="4jF-e2-zhd"/>
+                    <constraint firstItem="o4V-Kr-W18" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EYr-uP-TxU"/>
+                    <constraint firstAttribute="trailing" secondItem="o4V-Kr-W18" secondAttribute="trailing" id="r7z-7T-ioq"/>
+                    <constraint firstItem="o4V-Kr-W18" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rDA-kr-Fd7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="o4V-Kr-W18" id="3MA-h4-hGx"/>
+                <outlet property="timeLabel" destination="pPz-r1-HOT" id="LJs-Bg-WFV"/>
+                <outlet property="tweetLabel" destination="LP7-0C-383" id="oeo-Se-z6b"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
