@@ -48,6 +48,40 @@ def tweets():
 @app.route("/api/sentiment/tweets")
 def sentiment_tweets():
     documents = []
+    mapping = {}
+    counter = 1
+    for tweet in query_tweets(request.args.get("query"), 100, begindate=datetime.date(2017,1,1)):
+        documents.append({
+            "id": str(counter),
+            "language": "en",
+            "text": trim_emojis(tweet.text)
+        })
+        mapping[str(counter)] = tweet.text
+        counter += 1
+    body = { "documents": documents }
+    response = requests.post(TEXT_ANALYTICS_API_BASE + "/sentiment", headers=get_api_headers(), json=body)
+    tweets = []   
+    scoreSum = 0
+    length = 0
+    for document in response.json()["documents"]:
+        if document["score"] != 0.5:
+            scoreSum += document["score"]
+            length += 1
+            tweets.append({
+                "tweet": mapping[document["id"]],
+                "score": document["score"]
+            })
+    
+    response = {
+        "score": scoreSum / length,
+        "tweets": tweets
+    }
+    
+    return json.dumps(response)
+
+@app.route("/api/keywords")
+def keywords():
+    documents = []
     tweets = []
     counter = 1
     for tweet in query_tweets(request.args.get("query"), 100, begindate=datetime.date(2017,1,1)):
@@ -59,20 +93,9 @@ def sentiment_tweets():
         tweets.append(tweet.text)
         counter += 1
     body = { "documents": documents }
-    response = requests.post(TEXT_ANALYTICS_API_BASE + "/sentiment", headers=get_api_headers(), json=body)
-    scoreSum = 0
-    length = 0
-    for document in response.json()["documents"]:
-        if document["score"] != 0.5:
-            scoreSum += document["score"]
-            length += 1
+    response = requests.post(TEXT_ANALYTICS_API_BASE + "/keyPhrases", headers=get_api_headers(), json=body)
     
-    response = {
-        "score": scoreSum / length,
-        "tweets": tweets
-    }
-    
-    return json.dumps(response)
+    return json.dumps(response.json())
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
