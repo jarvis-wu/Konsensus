@@ -14,7 +14,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var filteredMovies = [Movie]()
     private let appStyle = AppStyle()
     private var isSearching = false
-    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -65,8 +64,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if isSearching {
             cell.title.text = filteredMovies[indexPath.row].title
             cell.genre.text = filteredMovies[indexPath.row].genre
-            cell.rating.text = String(filteredMovies[indexPath.row].rating)
-            cell.movieSplash.image = UIImage(named: filteredMovies[indexPath.row].imageUrl)
+            cell.rating.text = ""
+            if let url = URL( string: filteredMovies[indexPath.row].imageUrl)
+            {
+                DispatchQueue.global().async {
+                    if let data = try? Data( contentsOf:url)
+                    {
+                        DispatchQueue.main.async {
+                            cell.movieSplash.image = UIImage( data:data)
+                        }
+                    }
+                }
+            }
         } else {
             cell.title.text = movies[indexPath.row].title
             cell.genre.text = movies[indexPath.row].genre
@@ -78,9 +87,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        if indexPath.row == 0 {
-            present(UIViewController(), animated: true, completion: nil)
-        }
+        let movieVC = MovieViewController()
+        
+        movieVC.currentMovie = filteredMovies[indexPath.row]
+        present(movieVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -96,7 +106,33 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-        //        let searchQuery = ""
+        
+        let api_call_string = "http://www.omdbapi.com/?apikey=bdbfdd40&s=" + (searchBar.text ?? "")
+        let urlString = api_call_string.replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+        
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            if error != nil {
+                print(error as Any)
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                    if let searchResults = parsedData["Search"] as? [[ String : Any ]] {
+                        print("parsedData is \(searchResults)")
+                        for result in searchResults {
+                            self.filteredMovies.append(Movie(title: result["Title"] as! String, imageUrl: result["Poster"] as! String))
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                        print("filteredMovies array includes \(self.filteredMovies)")
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            
+            }.resume()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -115,5 +151,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.reloadData()
         print("\(filteredMovies)")
     }
-    
 }

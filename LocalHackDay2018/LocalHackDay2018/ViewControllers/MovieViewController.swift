@@ -12,6 +12,7 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     // mock data
     var tweets = [[String : Any]]()
+    public var currentMovie: Movie!
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,6 +26,26 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         twitterTableView.dataSource = self
         //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         self.twitterTableView.register(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "TweetTableViewCell")
+        updateUI()
+    }
+    
+    func updateUI() {
+        if let currentMovie = currentMovie {
+            DispatchQueue.main.async {
+                self.titleLabel.text = currentMovie.title
+                if let url = URL( string: currentMovie.imageUrl)
+                {
+                    DispatchQueue.global().async {
+                        if let data = try? Data( contentsOf:url)
+                        {
+                            DispatchQueue.main.async {
+                                self.imgView.image = UIImage(data:data)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
