@@ -9,16 +9,18 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-
+    
     private var movies = [Movie]()
+    private var filteredMovies = [Movie]()
     private let appStyle = AppStyle()
-
+    private var isSearching = false
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupTableView()
         setupSearchBar()
         
@@ -35,9 +37,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         statusBar.backgroundColor = .black
         navigationController?.navigationBar.backgroundColor = .black
     }
-
+    
     func setupTableView() {
-
+        
         tableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "Cell")
         tableView.delegate = self
         tableView.dataSource = self
@@ -49,25 +51,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchBar.showsCancelButton = false
         searchBar.delegate = self
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching {
+            return filteredMovies.count
+        }
         return movies.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieCell
         cell.selectionStyle = .none
-        cell.title.text = movies[indexPath.row].title
-        cell.genre.text = movies[indexPath.row].genre
-        cell.rating.text = String(movies[indexPath.row].rating)
-        cell.movieSplash.image = UIImage(named: movies[indexPath.row].imageUrl)
+        if isSearching {
+            cell.title.text = filteredMovies[indexPath.row].title
+            cell.genre.text = filteredMovies[indexPath.row].genre
+            cell.rating.text = String(filteredMovies[indexPath.row].rating)
+            cell.movieSplash.image = UIImage(named: filteredMovies[indexPath.row].imageUrl)
+        } else {
+            cell.title.text = movies[indexPath.row].title
+            cell.genre.text = movies[indexPath.row].genre
+            cell.rating.text = String(movies[indexPath.row].rating)
+            cell.movieSplash.image = UIImage(named: movies[indexPath.row].imageUrl)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        if indexPath.row == 0 {
+            present(UIViewController(), animated: true, completion: nil)
+        }
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UITableViewHeaderFooterView()
         headerView.textLabel?.text = "Now Showing"
@@ -76,22 +91,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+        isSearching = true
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
-//        let searchQuery = ""
+        //        let searchQuery = ""
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
+        isSearching = false
+        tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        let filteredMovies = items.filter { $0.contains(searchBar.text) }
+        filteredMovies = movies.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        if searchText.isEmpty {
+            filteredMovies = movies
+        }
         tableView.reloadData()
+        print("\(filteredMovies)")
     }
     
 }
