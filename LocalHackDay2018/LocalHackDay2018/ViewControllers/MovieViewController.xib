@@ -41,7 +41,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D1g-eQ-BC7">
-                    <rect key="frame" x="14.666666666666657" y="296" width="346" height="50"/>
+                    <rect key="frame" x="13.333333333333343" y="296" width="348.33333333333326" height="50"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zkd-xn-7uO">
                             <rect key="frame" x="0.0" y="0.0" width="266" height="50"/>
@@ -64,12 +64,18 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="266" id="Qc0-v0-qOu"/>
+                            </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mEL-a6-gv7">
-                            <rect key="frame" x="286" y="0.0" width="60" height="50"/>
+                            <rect key="frame" x="286" y="0.0" width="62.333333333333314" height="50"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-t0-Z8r">
-                                    <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="      " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-t0-Z8r">
+                                    <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="62.329999999999998" id="llh-La-Uym"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>

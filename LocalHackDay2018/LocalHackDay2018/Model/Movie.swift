@@ -14,7 +14,7 @@ struct Movie {
     var rating = Float()
     var imageUrl = String()
     
-    init(title: String, genre: String, rating: Float, imageUrl: String) {
+    init(title: String, genre: String = "", rating: Float = 0.0, imageUrl: String) {
         self.title = title
         self.genre = genre
         self.rating = rating
