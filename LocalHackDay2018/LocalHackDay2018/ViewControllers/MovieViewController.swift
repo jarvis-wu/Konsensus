@@ -11,11 +11,7 @@ import UIKit
 class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // mock data
-    let tweets = [("God i don't understand the hate, i absolutely loved it for what it was, maybe it's because i haven't seen the original classic, but the film delivered what i expected 😏", "4 min"),
-                  ("I expected the movie will be good. But it is actually boring 😟😟😟", "13 min"),
-                  ("This movie is the best in its kind. Looking for something not to terrify you much, watch this movie.", "23 min"),
-                  ("one of the best sci-fi movie I have ever seen.Scarlette was just awesome.It the lovely combination of sci-fi and human emotions....", "2 hrs"),
-                  ("As a long fan of Ghost in the shell original movie and it's anime adaptions, I'm disappointed at the way they handled the plot structure.", "3 hrs")]
+    var tweets = [[String : Any]]()
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -31,15 +27,53 @@ class MovieViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.twitterTableView.register(UINib(nibName: "TweetTableViewCell", bundle: nil), forCellReuseIdentifier: "TweetTableViewCell")
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.getTweets()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tweets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = twitterTableView.dequeueReusableCell(withIdentifier: "TweetTableViewCell", for: indexPath) as! TweetTableViewCell
-        cell.tweetLabel.text = tweets[indexPath.row].0
-        cell.timeLabel.text = tweets[indexPath.row].1
+        if let tweet = tweets[indexPath.row]["tweet"] as? String {
+            cell.tweetLabel.text = tweet
+        }
+        if let score = tweets[indexPath.row]["score"] as? Double {
+            cell.timeLabel.text = "Consensus Score: " + String(Int(round(score * 100)))
+        }
         return cell
+    }
+    
+    func getTweets() {
+        let movieName = titleLabel.text!.lowercased().replacingOccurrences(of: " ", with: "%20")
+        let urlStringRoot = "http://localhost:5000/api/sentiment/tweets?query=\(movieName)"
+        let url = URL(string: urlStringRoot)
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                do {
+                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String : Any]
+                    if let overallScore = parsedData["score"] as? Double {
+                        DispatchQueue.main.async {
+                            self.scoreLabel.text = String(Int(round(overallScore * 100)))
+                        }
+                    } else {
+                        print("failed getting overall score")
+                    }
+                    if let tweets = parsedData["tweets"] as? [[String : Any]] {
+                        self.tweets = tweets
+                        DispatchQueue.main.async {
+                            self.twitterTableView.reloadData()
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        }.resume()
     }
     
     

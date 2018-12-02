@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieViewController" customModule="LocalHackDay2018" customModuleProvider="target">
             <connections>
                 <outlet property="imgView" destination="Bhk-mg-gpw" id="6M1-gi-BdN"/>
+                <outlet property="scoreLabel" destination="LUP-t0-Z8r" id="ET2-0D-OZj"/>
                 <outlet property="subtitleLabel" destination="NJd-Yl-d1Z" id="PDu-oe-prU"/>
                 <outlet property="titleLabel" destination="q32-cX-cJq" id="cKc-EI-gtQ"/>
                 <outlet property="twitterTableView" destination="scf-3r-OD9" id="dL7-YF-uGF"/>
