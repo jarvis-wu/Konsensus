@@ -1,6 +1,6 @@
-# Koncensus
+# Konsensus
 
-Koncensus is a Hackathon project that won the first place in MLH Local Hack Day 2018. This project has a Python backend that generates normalized movie ratings through sentiment analysis on data scraped from Twitter; it also has an iOS app as a frontend where users can search for a movie from IMDb and view its overall rating score and each comment on Twitter.
+Konsensus is a Hackathon project that won the first place in MLH Local Hack Day 2018. This project has a Python backend that generates normalized movie ratings through sentiment analysis on data scraped from Twitter; it also has an iOS app as a frontend where users can search for a movie from IMDb and view its overall rating score and each comment on Twitter.
 
 ## Getting Started
 
